@@ -1,10 +1,10 @@
 package com.example.comment.pojo;
 
-import org.springframework.stereotype.Service;
+import java.io.Serializable;
 
-@Service
-public class CommentPojo {
+public class CommentPojo implements Serializable{
 
+	private static final long serialVersionUID = -1687117597865650647L;
 	private int productId;
 	private String comment;
 
