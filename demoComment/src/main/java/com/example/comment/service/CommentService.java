@@ -13,7 +13,11 @@ public class CommentService {
 
 	public boolean validate(CommentPojo commentPojo) throws Exception {
 		
-		if(!IsProductExists(commentPojo.getProductId())){
+		if(commentPojo == null){
+			throw new Exception();
+		}
+		
+		if(!isProductExists(commentPojo.getProductId())){
 			throw new Exception();
 		}
 
@@ -36,18 +40,11 @@ public class CommentService {
 		return wordsList;
 	}
 	
-	public boolean IsProductExists(int productId){
-		if(productId == 1 || productId == 2 || productId == 3){
+	public boolean isProductExists(int productId){
+		if(productId != 0 && productId <= Integer.MAX_VALUE){
 			return true;
 		}
 		return false;
 	}
-	
-public static void main(String[] args) throws Exception {
-	CommentPojo  cp = new CommentPojo(6, "a1aa zzz");
-	
-	CommentService cs = new CommentService();
-	System.out.println(cs.validate(cp));
-}
 	
 }
